@@ -8,12 +8,16 @@
   --color-text-primary: var(--color-text-primary, #0b1220);
   --color-text-secondary: var(--color-text-secondary, #6b7280);
   --site-max-width: var(--site-max-width, 1200px);
+  --apex-gold: #f4c44b;
 }
 
 html,
 body,
 #__next {
   height: 100%;
+}
+.text-apex-gold {
+  color: var(--apex-gold);
 }
 
 body {
@@ -110,32 +114,308 @@ header.site-header.apex-header {
   letter-spacing: 0.16em;
   color: #d8aa2c;
 }
+/* ===== NAVBAR SECTION (APEX) OVER ===== */
 
-/* Hero */
-.hero {
-  padding: 6rem 0;
-}
-.hero .headline {
-  font-size: clamp(2.25rem, 5vw, 3.5rem);
-  line-height: 1.02;
-  font-weight: 800;
-  color: var(--color-text-primary);
-}
-.hero .subhead {
-  margin-top: 1rem;
-  color: var(--color-text-secondary);
-  font-size: 1.125rem;
+/* ===== HERO SECTION (APEX) ===== */
+.apex-hero {
+  position: relative;
+  min-height: 70vh;
 }
 
-.btn-primary {
-  display: inline-block;
-  background: linear-gradient(90deg, var(--color-secondary), #ff8a5f);
-  color: #fff;
-  padding: 0.75rem 1.25rem;
+.apex-hero-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.apex-hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.06);
+  animation: heroZoom 18s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.apex-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      circle at top left,
+      rgba(0, 0, 0, 0.3),
+      transparent 55%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 0.85),
+      rgba(0, 0, 0, 0.9)
+    );
+}
+
+/* Smooth zoom like Wix hero */
+@keyframes heroZoom {
+  from {
+    transform: scale(1.06) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.12) translate3d(0, -4px, 0);
+  }
+}
+
+/* GENERIC DARK CARDS */
+.apex-card,
+.apex-plan {
+  background: #181818;
+  border-radius: 16px;
+  padding: 1.6rem 1.7rem;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
+  transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
+}
+
+.apex-card:hover,
+.apex-plan:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.75);
+  background: #1e1e1e;
+}
+
+.apex-plan-featured {
+  background: #222222;
+  border: 1px solid rgba(244, 196, 75, 0.5);
+}
+
+/* Slight zoom for images in secondary sections */
+.apex-img-zoom img {
+  transform: scale(1.03);
+  transition: transform 10s ease-out;
+}
+
+.apex-img-zoom:hover img {
+  transform: scale(1.08);
+}
+
+/* ===== STAGGERED FADE-UP ANIMATIONS ===== */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* base state */
+.fade-up {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  animation: fadeUp 0.9s ease-out forwards;
+}
+
+/* stagger modifiers */
+.fade-up-1 {
+  animation-delay: 0.1s;
+}
+
+.fade-up-2 {
+  animation-delay: 0.25s;
+}
+
+.fade-up-3 {
+  animation-delay: 0.4s;
+}
+
+.fade-up-4 {
+  animation-delay: 0.55s;
+}
+/* ===== HERO SECTION (APEX) OVER ===== */
+
+/* ===== ABOUT SECTION (APEX) ===== */
+
+.apex-about-section {
+  background: #111111;
+  color: #ffffff;
+}
+
+/* layout */
+.apex-about-layout {
+  display: grid;
+  gap: 2.75rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .apex-about-layout {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+  }
+}
+
+/* LEFT: visual */
+.apex-about-visual {
+  position: relative;
+  min-height: 260px;
+}
+
+.apex-about-img-main {
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
+}
+
+.apex-about-img-main img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.04);
+  transition: transform 10s ease-out;
+}
+
+/* subtle slow zoom like in the video */
+.apex-about-visual:hover .apex-about-img-main img {
+  transform: scale(1.08);
+}
+
+/* floating tag card */
+.apex-about-tag {
+  position: absolute;
+  right: -12px;
+  bottom: -22px;
+  max-width: 240px;
+  padding: 1rem 1.2rem;
+  border-radius: 18px;
+  background: rgba(0, 0, 0, 0.92);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(244, 196, 75, 0.65);
+}
+
+@media (min-width: 900px) {
+  .apex-about-tag {
+    right: -26px;
+    bottom: -30px;
+  }
+}
+
+.apex-about-tag-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+  color: #f4c44b;
+}
+
+.apex-about-tag-label::before {
+  content: "";
+  width: 8px;
+  height: 8px;
   border-radius: 999px;
-  font-weight: 700;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+  background: #f4c44b;
 }
+
+.apex-about-tag-text {
+  margin-top: 0.4rem;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* RIGHT: text panel */
+.apex-about-panel {
+  background: #5a2424;
+  border-radius: 22px;
+  padding: 2rem 2.4rem;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.9);
+}
+
+@media (min-width: 900px) {
+  .apex-about-panel {
+    padding: 2.3rem 2.8rem;
+  }
+}
+
+.apex-about-kicker {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.apex-about-heading {
+  margin-top: 0.6rem;
+  font-size: 1.7rem;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+@media (min-width: 900px) {
+  .apex-about-heading {
+    font-size: 2rem;
+  }
+}
+
+.apex-about-body {
+  margin-top: 0.9rem;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.apex-about-list {
+  margin-top: 1.4rem;
+  padding-left: 1.1rem;
+  font-size: 0.86rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.apex-about-list li {
+  list-style: disc;
+}
+
+/* ===== ABOUT ANIMATIONS (smooth like Wix) ===== */
+
+@keyframes aboutImgIn {
+  from {
+    opacity: 0;
+    transform: translate3d(-26px, 20px, 0) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes aboutCardIn {
+  from {
+    opacity: 0;
+    transform: translate3d(26px, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.about-anim-img {
+  opacity: 0;
+  animation: aboutImgIn 0.9s ease-out forwards;
+  animation-delay: 0.15s;
+}
+
+.about-anim-card {
+  opacity: 0;
+  animation: aboutCardIn 0.9s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+/* ===== ABOUT SECTION (APEX) OVER ===== */
 
 /* Program cards */
 .program-card {

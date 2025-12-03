@@ -1,0 +1,50 @@
+{
+  "site": {
+    "title": "AthleticCore Studio",
+    "nav": [
+      "Home",
+      "Programs",
+      "About",
+      "Contact"
+    ]
+  },
+  "hero": {
+    "title": "Become the Best Version of Yourself",
+    "subtitle": "Professional fitness coaching tailored to your goals",
+    "buttonText": "Start Now",
+    "image": "/images/hero.jpg"
+  },
+  "sections": [
+    {
+      "id": "programs",
+      "title": "Training Programs",
+      "description": "Custom workouts to match your lifestyle",
+      "items": [
+        {
+          "name": "Personal Training",
+          "image": "/images/program1.jpg",
+          "slug": "personal-training"
+        },
+        {
+          "name": "Group Classes",
+          "image": "/images/program2.jpg",
+          "slug": "group-classes"
+        },
+        {
+          "name": "Nutrition Coaching",
+          "image": "/images/program3.jpg",
+          "slug": "nutrition-coaching"
+        }
+      ]
+    },
+    {
+      "id": "about",
+      "title": "Why Choose Us",
+      "description": "We combine science and empathy to deliver the best results.",
+      "items": []
+    }
+  ],
+  "footer": {
+    "text": "\u00a9 2025 AthleticCore Studio \u2014 All rights reserved."
+  }
+}
